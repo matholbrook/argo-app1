@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crazy-caracal
+  namespace: app-foo-prd
+  labels:
+    app: crazy-caracal
+    env: prd
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: crazy-caracal
+      env: prd
+  template:
+    metadata:
+      labels:
+        app: crazy-caracal
+        env: prd
+    spec:
+      containers:
+      - name: apache1
+        image: httpd:latest
+        ports:
+        - containerPort: 80

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: crazy-caracal
+  namespace: app-foo-prd
+  labels:
+    app: crazy-caracal
+    env: prd
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: crazy-caracal
+    env: prd
